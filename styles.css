@@ -1,0 +1,133 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap");
+
+:root {
+  --bg-clr: #7e9fa4;
+  --white: #fff;
+  --dd-main-clr: #9bd7b1;
+  --dd-main-hvr: #3dd374;
+  --dd-text-clr: #dbdbdb;
+  --dd-hvr-clr: #e5f8ec;
+  --dd-text-hvr: #3dd374;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  list-style: none;
+  user-select: none;
+  font-family: "Open Sans", sans-serif;
+}
+
+body {
+  background: var(--bg-clr);
+}
+
+.wrapper {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.dd_wrap .dd_main_wrap,
+.dd_wrap .dd_items {
+  position: relative;
+  width: 300px;
+}
+
+.dd_wrap ul {
+  border-radius: 3px;
+}
+
+.dd_wrap .dd_main_wrap ul {
+  background: var(--dd-main-clr);
+  border-radius: 3px;
+}
+
+.dd_wrap .dd_items ul {
+  background: var(--white);
+}
+
+.dd_wrap ul li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 55px;
+  padding: 15px 25px;
+  cursor: pointer;
+  transition: background 0.5s ease;
+}
+
+.dd_wrap ul li .text{
+  font-weight: 600;
+  letter-spacing: 1px; 
+  transition: color 0.5s ease;
+}
+
+.dd_wrap ul li .icon{
+  display: flex;
+  font-size: 20px;
+  transition: color 0.5s ease;
+}
+ 
+.dd_wrap .dd_main_wrap {
+  margin-bottom: 8px;
+}
+
+.dd_wrap .dd_main_wrap ul li {
+  padding-left: 50px;
+  color: var(--white);
+}
+
+.dd_wrap .dd_items ul li {
+  color: var(--dd-text-clr);
+}
+
+.dd_wrap .dd_main_wrap ul li:hover,
+.dd_wrap .dd_main_wrap.active ul li{
+  border-radius: 3px;
+  background: var(--dd-main-hvr);
+}
+
+.dd_wrap .dd_items ul li:hover {
+  background: var(--dd-hvr-clr);
+  color: var(--dd-text-hvr);
+}
+
+.dd_wrap .dd_items ul li:first-child {
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
+}
+
+.dd_wrap .dd_items ul li:last-child {
+  border-bottom-left-radius: 3px;
+  border-bottom-right-radius: 3px;
+}
+
+.dd_wrap .dd_items:before{
+  content: "";
+  position: absolute;
+  top: -25px;
+  left: 20px;
+  border: 13px solid;
+  border-color: transparent  transparent var(--white) transparent;
+  z-index: 999;
+}
+
+.dd_wrap .dd_items:after{
+  content: "";
+  position: absolute;
+  top: -40px;
+  left: 12px;
+  border: 20px solid;
+  border-color: transparent  transparent var(--bg-clr) transparent;
+}
+
+.dd_wrap .dd_items{
+  visibility: hidden;
+}
+
+.dd_wrap .dd_main_wrap.active + .dd_items{
+  visibility: visible;
+}
